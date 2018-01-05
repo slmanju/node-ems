@@ -1,3 +1,5 @@
+var Employee = require("../models/employee");
+
 var EmployeeController = {};
 
 EmployeeController.list = function(req, res) {
