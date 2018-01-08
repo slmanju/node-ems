@@ -1,33 +1,63 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Employee List</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-<body>
-<div class="container">
-    <h3><a href="/employees/create">Create Employee</a></h3>
-    <h1>Employee List</h1>
-    <% if(employees.length>0) { %>
-    <table>
-        <thead>
-        <tr>
-            <th>Username</th>
-            <th>Email</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% for(var i=0; i<employees.length;i++) { %>
-        <tr>
-            <td><a href="/employees/show/<%= employees[i]._id%>"><%= employees[i].username%></a></td>
-            <td><%= employees[i].email%></td>
-        </tr>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>EMS</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+      
+    <link rel="stylesheet" href="/stylesheets/style.css"></link>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <% include ../partials/header %>
+
+      <main role="main">
+        <% if (employees.length > 0) { %>
+        <div>
+            <div class="card">
+              <div class="card-header">
+                Employees
+              </div>
+              <div class="card-block">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i = 0; i < employees.length; i++) { %>
+                        <tr>
+                            <td><%= employees[i].username %></td>
+                            <td><%= employees[i].email %></td>
+                            <td>
+                                <a href="/employees/show/<%= employees[i]._id%>"><i class="fa fa-list" aria-hidden="true"></i></a>
+                                <a href="/employees/show/<%= employees[i]._id%>"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+        <% } else { %>
+        <div>No employees found.</div>
         <% } %>
-        </tbody>
-    </table>
-    <% } else { %>
-    <div>No employees found.</div>
-    <% } %>
-</div>
-</body>
+      </main>
+
+      <% include ../partials/footer %>
+
+    </div> <!-- /container -->
+  </body>
 </html>

@@ -10,7 +10,7 @@ EmployeeController.list = function(req, res) {
 };
 
 EmployeeController.findById = function(req, res) {
-    Employee.findById(req.params.id, function(err, user) {
+    Employee.findById(req.params.id, function(err, employee) {
       if (err) throw err;
       res.render("../views/employee/show", { employee: employee });
     });
