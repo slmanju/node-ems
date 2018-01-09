@@ -12,7 +12,7 @@ EmployeeController.list = function(req, res) {
 EmployeeController.findById = function(req, res) {
     Employee.findById(req.params.id, function(err, employee) {
       if (err) throw err;
-      res.render("../views/employee/show", { employee: employee });
+      res.render("../views/employee/view", { employee: employee });
     });
 };
 
@@ -29,7 +29,7 @@ EmployeeController.save = function(req, res) {
             res.render("../views/employees/create");
         } else {
             console.log("Successfully created an employee.");
-            res.redirect("/employees/show/" + employee._id);
+            res.redirect("/employees/view/" + employee._id);
         }
     });
 };
@@ -43,14 +43,19 @@ EmployeeController.edit = function(req, res) {
 
 EmployeeController.update = function(req, res) {
     Employee.findByIdAndUpdate(req.params.id, 
-                               { $set: { username: req.body.username, email: req.body.email, password: req.body.password }}, 
+                               { $set: { 
+                                   firstName: req.body.firstName,
+                                   lastName: req.body.lastName,
+                                   email: req.body.email,
+                                   password: req.body.password
+                               }}, 
                                { new: true }, 
                                function (err, employee) {
         if (err) {
             console.log(err);
-            res.render("../views/employee/edit", {employee: req.body});
+            res.render("../views/employee/edit", { employee: req.body });
         }
-        res.redirect("/employees/show/"+employee._id);
+        res.redirect("/employees/view/" + employee._id);
     });
 };
 

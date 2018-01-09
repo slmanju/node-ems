@@ -6,21 +6,21 @@ var employee = require("../controllers/employee-controller");
 router.get('/', employee.list);
 
 // Get single employee by id
-router.get('/show/:id', employee.findById);
+router.get('/view/:id', employee.findById);
 
 // Create employee
 router.get('/create', employee.create);
 
-// Save employee
+// save employee
 router.post('/save', employee.save);
 
-// Edit employee
+// get employee to edit
 router.get('/edit/:id', employee.edit);
 
-// Edit update
+// update
 router.post('/update/:id', employee.update);
 
-// Edit update
-router.post('/delete/:id', employee.delete);
+// delete
+router.get('/delete/:id', employee.delete);
 
 module.exports = router;
