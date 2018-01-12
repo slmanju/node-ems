@@ -1,38 +1,9 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>EMS</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"></link>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-      
-    <link rel="stylesheet" href="/stylesheets/style.css"></link>
-  </head>
-
-  <body>
-
-    <div class="container">
-      <% include ../partials/header %>
-
-      <main role="main">
-        <div class="card" style="width:400px">
-          <div class="card-body">
-            <h4 class="card-title"><%= employee.firstName + ' ' + employee.lastName %></h4>
-            <p class="card-text">
-                <h6>Email: <%= employee.email %></h6>
-                <h6>Password : <%= employee.password %></h6>
-            </p>
-          </div>
-        </div>
-      </main>
-
-      <% include ../partials/footer %>
-
-    </div> <!-- /container -->
-  </body>
-</html>
+<div class="card" style="width:400px">
+  <div class="card-body">
+    <h4 class="card-title"><%= employee.firstName + ' ' + employee.lastName %></h4>
+    <p class="card-text">
+        <h6>Email: <%= employee.email %></h6>
+        <h6>Password : <%= employee.password %></h6>
+    </p>
+  </div>
+</div>
