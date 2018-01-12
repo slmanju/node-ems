@@ -8,7 +8,7 @@ Node employee management system
 * [Creating views with EJS](http://slmanju.blogspot.com/2018/01/creating-views-with-ejs.html)
 * [Creating layouts](http://slmanju.blogspot.com/2018/01/layouts-in-express-ejs.html)
 
-
+Technical Stack
 * Node
 * Express
 * Mongo
